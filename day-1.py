@@ -3,7 +3,7 @@ import re
 
 # part 1
 
-"""with open('input-1-1.txt', 'r') as lines:
+"""with open('input.txt', 'r') as lines:
     calibration_value = 0
     current_value = ""
     for line in lines:
@@ -16,7 +16,7 @@ import re
         current_value = ""
     print(calibration_value)"""
 # part 2
-with open('input-1-1.txt', 'r') as lines:
+with open('input.txt', 'r') as lines:
     calibration_value = 0
     num_to_word = {'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5', 'six': '6', 'seven': '7',
                    'eight': '8', 'nine': '9'}
