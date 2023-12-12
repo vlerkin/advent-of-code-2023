@@ -1,3 +1,4 @@
+from functools import reduce
 
 # part 1
 with open('input.txt', 'r') as lines:
@@ -21,3 +22,19 @@ with open('input.txt', 'r') as lines:
             games.append(num_game)
         num_game += 1
     print(sum(games))
+
+# part 2
+with open('input.txt', 'r') as lines:
+    game_power = 0
+    for line in lines:
+        game = line.strip().split(": ")[1].split("; ")
+        subset_config = {'red': 0, 'green': 0, 'blue': 0}
+        for subset in game:
+            rounds = subset.split(", ")
+            for round in rounds:
+                clean_round = round.split()
+                if subset_config[clean_round[1]] < int(clean_round[0]):
+                    subset_config[clean_round[1]] = int(clean_round[0])
+        subset_power = reduce((lambda x, y: x * y), subset_config.values())
+        game_power += subset_power
+    print(game_power)
